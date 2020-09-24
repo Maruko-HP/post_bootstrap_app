@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-  
-  before_action :set_post, only : %i[show edit update destroy]
-  
+  before_action :set_post, only: %i[show edit update destroy]
+
   def index
     @posts = Post.order(id: :asc)
   end
@@ -25,13 +24,13 @@ class PostsController < ApplicationController
 
   def update
     # post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to post
+    @post.update!(post_params)
+    redirect_to @post
   end
 
   def destroy
     # post = Post.find(params[:id])
-    post.destroy!
+    @post.destroy!
     redirect_to root_path
   end
 
